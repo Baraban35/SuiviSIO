@@ -1,0 +1,488 @@
+body
+{
+   width: 1100px;
+   margin: auto;
+   margin-top: 0px;
+   margin-bottom: 10px;
+}
+
+input
+{
+  font-size: small;
+  font-family: "Comic Sans MS";
+  color : #404040;
+}
+
+select
+{
+  font-size: small;
+  color : #404040;
+}
+
+#bandeau
+{
+   width: 1100px;
+   height: 100px;
+   background-color: #96FF96;
+   background-image: url("images/bandeau.png");
+   background-repeat: no-repeat;
+   background-position: right;
+   margin-bottom: 5px;
+   border: thin rgb(128,128,128) solid;
+}
+
+#qui
+{
+   width: 150px;
+   height: 40px;
+   margin-top: 20px;
+   margin-left: 10px;
+   font-family: "Comic Sans MS";
+   font-size: small;
+   font-weight: bold;
+   color: #1B891B;
+}
+
+#left
+{
+   float: left;
+   width: 190px;
+}
+
+.menuh
+{
+   background-color: rgb(150,255,150);
+   padding: 1px;
+   margin-bottom: 5px;
+   border: thin rgb(0,153,0) solid ;
+}
+
+.menuh h4
+{
+   color: rgb(20,20,90);
+   text-align: center;
+   font-family: "Geneva", "Arial", "Helvetica", "san-serif";
+   font-size: small;
+}
+
+.menu
+{
+   background-color: #CBF9CB;
+   background-repeat: repeat-x;
+   border: thin rgb(20,20,90) solid;
+   padding: 2px;
+   margin-bottom: 5px;
+   font-family: "Geneva", "Arial", "Helvetica", "san-serif";
+   font-size: small;
+}
+
+.menu h4
+{
+   color: rgb(100,100,100);
+   text-align: center;
+   padding: 10px;
+   /*background-color: rgb(255,204,153);*/
+   background-image: url(images/fondsH4Menu.png);
+   line-height: 0.4;
+}
+
+.menu p
+{
+   color: rgb(150,150,150);
+
+}
+
+.menu ul
+{
+   list-style-image: url("images/puce.png");
+   padding: 0px;
+   padding-left: 20px;
+   margin: 0px;
+   margin-bottom: 5px;
+}
+
+.menu a
+{
+   color: #808080;
+}
+
+.menu a:hover
+{
+   background-color: #A7D9A7;
+   color: black;
+}
+
+.auth
+{
+  font-size: small;
+  color: rgb(104,104,104);
+}
+
+.centrer{
+  text-align: center;
+}
+
+#corps
+{
+   margin-left: 200px;
+   margin-bottom: 20px;
+   padding: 5px;
+   color: #404040;
+   background-color: #FBFBEE;
+   background-repeat: no-repeat;
+   background-attachment: scroll;
+   background-position: center center;*/
+}
+
+#corps h1
+{
+   color: #888888;
+   text-align: center;
+   font-family: Arial, "Arial Black", "Times New Roman", Times, serif;
+}
+
+#corps h2
+{
+   font-size: large;
+   padding-left: 30px;
+   color: #B0B0B0;
+   text-align: left;
+   font-family: Arial, "Arial Black", "Times New Roman", Times, serif;
+}
+
+#corps h3
+{
+   font-size: medium;
+   padding-left: 50px;
+   color: #B0B0B0;
+   text-align: left;
+   font-family: Arial, "Arial Black", "Times New Roman", Times, serif;
+}
+
+
+#descr
+{
+   font-size: medium;
+   padding-left: 60px;
+   color: #840400;
+   text-align: left;
+   font-family: Arial, "Arial Black", "Times New Roman", Times, serif;
+}
+
+.entete
+{
+  font-weight: bold;
+}
+
+#corps table
+{
+  font-family: "Geneva", "Arial", "Helvetica", "san-serif";
+  font-size: small;
+  margin: auto;
+  table-layout: auto;
+  width: 80%;
+}
+
+#corps table.pilote
+{
+  font-family: "Geneva", "Arial", "Helvetica", "san-serif";
+  font-size: small;
+  /*margin: auto auto auto 50;*/
+  margin-left: 80px;
+  table-layout: auto;
+  width: auto;
+}
+
+#corps table.pilote td
+{
+  border: 1px rgb(123,123,123) solid
+}
+
+#corps table.pilote a
+{
+  text-decoration: none;
+}
+
+#messavert p
+{
+	font-family: "Geneva", "Arial", "Helvetica", "san-serif";
+	font-size: x-small;
+	text-align: center;
+	color: Red;
+}
+
+#situtete
+{
+  font-family: Arial;
+  font-size: small;
+  color: Red;
+}
+
+#situtexte
+{
+  font-family: "Comic Sans MS";
+  font-size: small;
+  color: Red;
+  font-weight: bold;
+}
+
+#corps p
+{
+   font-family: "Geneva", "Arial", "Helvetica", "san-serif";
+   font-size : small;
+}
+
+
+
+#navlist
+{
+padding: 3px 0;
+margin-left: 0;
+border-bottom: 1px solid #778;
+font: bold 12px Verdana, sans-serif;
+}
+
+#navlist li
+{
+list-style: none;
+margin: 0;
+display: inline;
+}
+
+#navlist li a
+{
+padding: 3px 0.5em;
+margin-left: 3px;
+border: 1px solid #778;
+border-bottom: none;
+background: #f0f0f0;
+text-decoration: none;
+}
+
+#navlist li a:link { color: #448; }
+#navlist li a:visited { color: #667; }
+
+#navlist li a:hover
+{
+color: #000;
+background: #9A8F92;
+border-color: #227;
+}
+
+#navlist li a#current
+{
+background: white;
+border-bottom: 1px solid white;
+}
+
+.obl
+{
+  font-style: italic;
+  color: rgb(0,0,200);
+}
+
+.bleudroit{
+  font-style: italic;
+  color: rgb(0,0,200);
+  text-align: right;
+}
+
+.ouinote{
+  color: rgb(65,200,0);
+  font-weight: bold;
+}
+
+.trp0
+{
+ background-color: rgb(240,255,255);
+}
+
+.tri0
+{
+ background-color: rgb(255,240,255);
+}
+
+.trp1
+{
+ background-color: rgb(225,255,255);
+}
+
+.tri1
+{
+ background-color: rgb(255,225,255);
+}
+
+.oblig
+{
+  color: rgb(255,0,0);
+}
+
+.td1
+{
+ background-color: rgb(210,210,210);
+}
+
+.td2
+{
+ background-color: rgb(230,230,230);
+}
+
+.td3
+{
+ background-color: rgb(250,250,250);
+}
+
+.itd1
+{
+ background-color: rgb(219,219,219);
+ font-style: italic;
+}
+
+.itd2
+{
+  font-style: italic;
+  background-color: rgb(240,240,240);
+}
+
+.rouge
+{
+  color: rgb(255,0,0);
+}
+
+.vert
+{
+  color: rgb(0,200,0);
+}
+
+.popref{
+  position:absolute;
+  visibility:hidden;
+  z-index:2;
+  background-color: rgb(237,177,123);
+  font-family:Verdana;
+  font-size:8pt;
+  padding:3px;
+  text-align:left;
+  border:1px solid black;"
+}
+
+.nbevalR{
+  color: rgb(237,0,0);
+}
+
+.nbevalV{
+  color: rgb(0,153,0);
+}
+
+.nbevalO{
+  color: rgb(237,153,0);
+}
+
+.descr{
+  margin-left: 5px;
+  font-family:Verdana;
+  font-size:10pt;
+}
+
+.part{
+  margin-left: 30px;
+  font-family:Verdana;
+  font-size:8pt;
+}
+
+.tache{
+  margin-left: 30px;
+  font-family:Verdana;
+  font-size:8pt;
+}
+
+.haut10{
+position:relative; top:-30px; left:0px;
+}
+
+.bas10{
+position:relative; top:-20px; left:0px;
+}
+
+
+.titre
+{
+	font-size:small;
+	margin-left: 40px;
+	margin-top: 10px
+}
+
+.libelle
+{
+	font-size:small;
+	margin-left: 10px;
+	margin-top: 50px;
+	width: 150px;
+}
+
+.listeder
+{
+	margin-left: 160px;
+	margin-top: -60px;
+}
+
+.libellebas
+{
+	font-size:small;
+	margin-left: 10px;
+	margin-top: 20px;
+	width: 150px;
+}
+
+.champtexte
+{
+	margin-left: 160px;
+	margin-top: -20px;
+}
+
+.champtexteb
+{
+	margin-left: 160px;
+	margin-top: -35px;
+}
+
+.btnsuppr
+{
+	margin-left: 250px;
+}
+.activ
+{
+	font-size:medium;
+	margin-left: 10px;
+	margin-top: 10px;
+	width: 800px;
+}
+
+.comp
+{
+	font-size:small;
+	margin-left: 40px;
+	margin-top: 5px;
+	width: 770px;
+}
+
+.libder
+{
+	font-size:small;
+	margin-left: 20px;
+	width: 90px;
+}
+.libdersb
+{
+	font-size:small;
+	margin-left: 0px;
+	width: 90px;
+}
+.dtes
+{
+	font-size:small;
+	margin-top:10px;
+	margin-left: 160px;
+	margin-bottom:10px;
+	width: 700px;
+}

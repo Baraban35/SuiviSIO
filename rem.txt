@@ -1,0 +1,3 @@
+Certaines classes contiennent des méthodes inutilisées (reste d'autres versions)
+
+Pareil pour les requêtes SQL parmi lesquelles certaines sont inutiles ici.
