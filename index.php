@@ -21,7 +21,7 @@ if (@opendir('dirrw/init/')) {
     $ctrl= new Accueil($util,$_REQUEST);
   } else {
     $act=$_REQUEST["action"];
-    if (in_array($act,$cl,TRUE) && ($util->estAuthent() || $act="authent")){
+    if (in_array($act,$cl,TRUE) && ($util->estAuthent() || $act=="authent")){
       if ($act=="chpromo"){
       	$util->changeGroupe($_REQUEST["legroupe"]);
       	$ctrl= new Eaccueil($util,"p");
