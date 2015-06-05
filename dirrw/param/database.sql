@@ -31,7 +31,7 @@ USE `portefeuille`;
 CREATE TABLE IF NOT EXISTS `port_activite` (
   `id` smallint(6) NOT NULL,
   `idDomaine` smallint(6) NOT NULL,
-  `nomenclature` char(6) NOT NULL,
+  `nomenclature` char(7) NOT NULL,
   `lngutile` smallint(6) NOT NULL,
   `libelle` varchar(150) NOT NULL,
   PRIMARY KEY (`id`)
@@ -84,7 +84,7 @@ INSERT INTO `port_activite` (`id`, `idDomaine`, `nomenclature`, `lngutile`, `lib
 (40, 11, 'A4.1.7', 54, 'Développement, utilisation ou adaptation de composants logiciels'),
 (41, 11, 'A4.1.8', 49, 'Réalisation des tests nécessaires à la validation d''éléments adaptés ou développés'),
 (42, 11, 'A4.1.9', 40, 'Rédaction d''une documentation technique'),
-(43, 11, 'A4.1.1', 45, 'Rédaction d''une documentation d''utilisation'),
+(43, 11, 'A4.1.10', 45, 'Rédaction d''une documentation d''utilisation'),
 (44, 12, 'A4.2.1', 44, 'Analyse et correction d''un dysfonctionnement, d''un problème de qualité de service ou de sécurité'),
 (45, 12, 'A4.2.2', 52, 'Adaptation d''une solution applicative aux évolutions de ses composants'),
 (46, 12, 'A4.2.3', 57, 'Réalisation des tests nécessaires à la mise en production d''éléments mis à jour'),
@@ -353,7 +353,7 @@ INSERT INTO `port_domaine` (`id`, `idProcessus`, `nomenclature`, `libelle`) VALU
 (3, 1, 'D1.3', 'Mise en production d''un service'),
 (4, 1, 'D1.4', 'Travail en mode projet'),
 (5, 2, 'D2.1', 'Exploitation des services'),
-(6, 2, 'D2.2', 'Gestion des incidents et des demandes d''assistance'),
+(6, 2, 'D2.2', 'Gestion des incidents et des demandes d''assistance'),
 (7, 2, 'D2.3', 'Gestion des problèmes et des changements'),
 (8, 3, 'D3.1', 'Conception d''une solution d''infrastructure'),
 (9, 3, 'D3.2', 'Installation d''une solution d''infrastructure'),
