@@ -54,35 +54,34 @@
 
 
 
-	  if (!$cn= new PDO("mysql:host=".$nomserveur,$login,$mdp)) throw new Exception('Connexion impossible');
+	  if (!$cn=@mysql_connect($nomserveur,$login,$mdp)) throw new Exception('Connexion impossible');
 
 	  if (isset($_POST["creation"])){ //création bd
 	    $req='drop database if exists '.$nombd;
-	    $cn->query($req);
+	    mysql_query($req,$cn);
 	    $req='create database '.$nombd;
-	    if (!$cn->query($req)) throw new Exception('Cr&eacute;ation base impossible');
+	    if (!mysql_query($req,$cn)) throw new Exception('Cr&eacute;ation base impossible');
 	  }
-          $cn=NULL;
-	  if (!$cn= new PDO("mysql:host=".$nomserveur.";dbname=".$nombd,$login,$mdp)) throw new Exception('Base non trouv&eacute;e');
+	  if (!mysql_select_db($nombd,$cn)) throw new Exception('Base non trouv&eacute;e');
 
 	  include 'tb.php';
 	  foreach($requete as $cle => $valeur)
-	    if (!$cn->query($debut.$prefixe.$cle.'('.$valeur.$fin)) throw new Exception('Erreur cr&eacute;ation table '.$cle);
+	    if (!mysql_query($debut.$prefixe.$cle.'('.$valeur.$fin,$cn)) throw new Exception('Erreur cr&eacute;ation table '.$cle);
 
 	  include 'cle.php';
 	  foreach($cle as $reqcle)
-	    if (!$cn->query($reqcle)) throw new Exception('Erreur sur FK / index '.$reqcle);
+	    if (!mysql_query($reqcle)) throw new Exception('Erreur sur FK / index '.$reqcle);
 
 	  include 'data.php';
 	  foreach($requete as $cle=>$valeur)
 	    foreach($valeur as $ligne)
-	      if (!$cn->query('insert into '.$prefixe.$cle.' values('.$ligne.');'))
+	      if (!mysql_query('insert into '.$prefixe.$cle.' values('.$ligne.');',$cn))
 	      	throw new Exception('Erreur &eacute;criture table '.$cle);
 
 	  $req='update '.$prefixe.'professeur set mel="'.$_POST["loginadmin"].'", mdp="'.$mdpadminCr.'" where num=1';
-	  $cn->query($req);
+	  mysql_query($req,$cn);
 
-	  $cn=NULL;
+	  mysql_close($cn);
 	  echo 'Fin de l\'installation<br />';
 	  echo 'Notez bien les identifiants de connexion de l\'administrateur :';
 	  echo '<ul><li>Login = '.$_POST["loginadmin"].'</li>';

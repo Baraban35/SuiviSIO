@@ -1,7 +1,7 @@
 <?php
 $nomServeur="localhost";
-$loginAdminServeur="portefeuille";
-$motPasseAdminServeur="portefeuille";
+$loginAdminServeur="root";
+$motPasseAdminServeur="";
 $nomBaseDonnee="portefeuille";
 $prefixeTable="port_";
 $crypte=false;

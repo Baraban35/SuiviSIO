@@ -9,7 +9,7 @@ Installation
 + Copier les fichiers dans le répertoire de publication
 + En tant qu'administrateur MySQL, créer un utilisateur MySQL nommé "portefeuille" avec mot de passe "portefeuille" 
 + En tant qu'administrateur MySQL, créer une base de données nommée "portefeuille" sur laquelle l'utilisateur "portefeuille" a tous les droits
-+ En tant qu'utilisateur MySQL "portefeuille", importer le script "répertoire_de_publication/dirrw/param/database.php" dans la base "portefeuille"
++ En tant qu'utilisateur MySQL "portefeuille", importer le script "répertoire_de_publication/dirrw/param/database.sql" dans la base "portefeuille"
 
 En fin d'installation
 + l'administrateur de l'application peut se connecter en tant que admin@local.fr/123456
