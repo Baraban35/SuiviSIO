@@ -41,7 +41,8 @@ class MySqlTest extends PHPUnit_Framework_TestCase {
         unset($monPdo);
 
         // instanciation d'un manager qui va servir à toutes les méthodes de test
-        $this->_unMysql = new Mysql("test");
+        $estModeTest=true;
+        $this->_unMysql = new Mysql($estModeTest);
         $this->_unMysql->connect();
     }
     /**
@@ -104,39 +105,39 @@ class MySqlTest extends PHPUnit_Framework_TestCase {
      *      (INVALIDE) on vérifie la valeur du dernier ID généré par la dernière requête, si aucune connexion n'a été établie 
      */
     public function testInsertId() {
+        //suppression de la ligne ajoutée
+	$this->_unMysql->execSql("delete from `port_professeur` where nom='Test'");
+        $this->_unMysql->execSql("alter table `port_professeur` auto_increment 2");
         //requête test
         $this->_unMysql->execSql("insert into `port_professeur` values (NULL, 'Test', 'Unit', 'unit.test@gmail.com', 'azerty', '0', NULL)");
         $dernierAjoutCasUn = $this->_unMysql->insertId();
         // on vérifie le type du retour, et sa valeur
-        $this->assertTrue(is_string($dernierAjoutCasUn));
-        self::assertequals("42", $dernierAjoutCasUn); //la valeur voulue peut varier en fonction du nombre de fois que l'on exécute le test
-        //suppression de la ligne ajoutée
-	$this->_unMysql->execSql("delete from `port_professeur` where nom='Test'");
+        $this->assertTrue(is_int($dernierAjoutCasUn));
+        self::assertequals(2, $dernierAjoutCasUn);
 		
         //requête test
         $this->_unMysql->execSql("select * from `port_professeur`");
         $dernierAjoutCasDeux = $this->_unMysql->insertId();
         // on vérifie le type du retour, et sa valeur
-        $this->assertTrue(is_string($dernierAjoutCasDeux));
-        self::assertequals("0", $dernierAjoutCasDeux);
+        $this->assertTrue(is_int($dernierAjoutCasDeux));
+        self::assertequals(0, $dernierAjoutCasDeux);
         
         /*
          * 
-        //déconnexion
+        //simulation d'une problème de connexion
         $this->_unMysql->close();
+        $this->_unMysql = new Mysql($estModeTest); 
         $dernierAjoutCasTrois = $this->_unMysql->insertId();
         // on vérifie le type du retour, et sa valeur
         $this->assertTrue(is_bool($dernierAjoutCasTrois));
         self::assertequals(false, $dernierAjoutCasTrois);
         //reconnexion
-        $hote = "localhost";
-        $nomBD = "portefeuille"; 
-        $compte = "portefeuille";
-        $mdp = "portefeuille";
-        $this->_unMysql = new Mysql($hote, $nomBD, $compte, $mdp);
+        $estModeTest=true;
+        $this->_unMysql = new Mysql($estModeTest);
         $this->_unMysql->connect();
          * 
          */
+        
     }
         
     /**
@@ -197,7 +198,8 @@ class MySqlTest extends PHPUnit_Framework_TestCase {
      *      on vérifie la présence du fichier
      */
     public function testSauveTables() {
-        $this->_unMysql->sauveTables("test");
+        $estModeTest=true;
+        $this->_unMysql->sauveTables($estModeTest);
         $nomFic="../dirrw/exsv/export".date("w").".sql.gz";
         $presence=  file_exists($nomFic);
         self::assertequals(true, $presence, "Vérification de présence du fichier");
