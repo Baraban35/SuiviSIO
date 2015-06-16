@@ -199,7 +199,7 @@ class MySqlTest extends PHPUnit_Framework_TestCase {
      */
     public function testSauveTables() {
         $estModeTest=true;
-        $this->_unMysql->sauveTables($estModeTest);
+        $this->_unMysql->sauveTables(1, $estModeTest);
         $nomFic="../dirrw/exsv/export".date("w").".sql.gz";
         $presence=  file_exists($nomFic);
         self::assertequals(true, $presence, "Vérification de présence du fichier");

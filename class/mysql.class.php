@@ -35,7 +35,7 @@
     /** 
      * @function connect
      *    
-     * Permet d'établir la connexion à la base de données
+     * Permet d'établir la connexion ? la base de données
      */
     public function connect()
     {//pas de gestion erreur, ça doit marcher quand on lui dit de marcher !
@@ -49,9 +49,9 @@
      *
      * @param string       $req     Une chaîne contenant un ordre SQL   
      *
-     * @return array       $tbRes   Un tableau à indice numérique contenant le résultat de l'ordre SQL ordonné par ligne
+     * @return array       $tbRes   Un tableau ? indice numérique contenant le résultat de l'ordre SQL ordonné par ligne
      *
-     * Permet d'envoyer un ordre SQL à la base de données et de retourner un tableau qui contient les lignes résultats.
+     * Permet d'envoyer un ordre SQL ? la base de données et de retourner un tableau qui contient les lignes résultats.
      */
     public function execSQLRes($req)
     {
@@ -75,7 +75,7 @@
     /**
      * @function insertId
      * 
-     * @return int       $dernierAjout    Un entier correspondant à la valeur du dernier ID inséré dans un champ de type AUTO_INCREMENT
+     * @return int       $dernierAjout    Un entier correspondant ? la valeur du dernier ID inséré dans un champ de type AUTO_INCREMENT
      * 
      * Permet de connaitre la valeur du dernier ID, attribué automatiquement, dans la base de données.
      */
@@ -96,7 +96,7 @@
      * 
      * @return int          Un entier indiquant le nombre de lignes affectées par l'ordre SQL
      * 
-     * Permet d'envoyer un ordre SQL à la base de données.
+     * Permet d'envoyer un ordre SQL ? la base de données.
      */
     public function execSQL($req)
 	{
@@ -113,37 +113,38 @@
      * 
      * Permet de sauvegarder l'état de la base de données dans un fichier SQL compressé.
      */
-    public function sauveTables($estModeTest=false){
+    public function sauveTables($id, $estModeTest=false){
             if ($estModeTest) {
                 $nomFic="../dirrw/exsv/export".date("w").".sql.gz"; //TestUnit
             }
             else {
                 $nomFic="./dirrw/exsv/export".date("w").".sql.gz"; //AppliWeb
-            }	   
-	   $fic = gzopen($nomFic,'w');
-	   $ressTables = $this->con->query('show tables from '.$this->bd);
-	   while ($lesTables = $ressTables->fetch(PDO::FETCH_NUM)) {
-			$uneTable = $lesTables[0];
-                        $res = $this->con->query('show create table '.$uneTable);
-			if ($res!=false) {			
-                            $tb = $res->fetch(PDO::FETCH_NUM);
-                            gzwrite($fic, $tb[1].";\n");
-                            $contenu = $this->con->query('select * from '.$uneTable);
-                            $nbChamps = $contenu->columnCount();
-                            while ($ligne = $contenu->fetch(PDO::FETCH_NUM)) {
-                            $txt = 'insert into '.$uneTable.' values(';
-                            for ($i=0; $i<$nbChamps; $i++)
-                            $txt .= '\''.$ligne[$i].'\',';
-                            $txt = substr($txt, 0, -1);
-                            gzwrite($fic, $txt.");\n");			 
-			 }
-			 $contenu->closecursor();
-			 $res->closecursor();
-			}
-		}
-		gzclose($fic);
-		$ressTables->closecursor();
-		return $nomFic;  
+            }	 
+            
+            $fic = gzopen($nomFic,'w');
+            $ressTables = $this->con->query('show tables from '.$this->bd);
+            while ($lesTables = $ressTables->fetch(PDO::FETCH_NUM)) {
+		$uneTable = $lesTables[0];
+                $res = $this->con->query('show create table '.$uneTable);
+		if ($res!=false) {			
+                    $tb = $res->fetch(PDO::FETCH_NUM);
+                    gzwrite($fic, $tb[1].";\n");
+                    $contenu = $this->con->query('select * from '.$uneTable);
+                    $nbChamps = $contenu->columnCount();
+                    while ($ligne = $contenu->fetch(PDO::FETCH_NUM)) {
+                        $txt = 'insert into '.$uneTable.' values(';
+                        for ($i=0; $i<$nbChamps; $i++)
+                        $txt .=$this->con->quote($ligne[$i]).",";
+                        $txt = substr($txt, 0, -1);
+                        gzwrite($fic, $txt.");\n");			 
+                    }
+                $contenu->closecursor();
+                $res->closecursor();
+                }
+            }
+            gzclose($fic);
+            $ressTables->closecursor();
+            return $nomFic;  
 	}
 
     /**
