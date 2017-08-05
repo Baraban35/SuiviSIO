@@ -8,8 +8,8 @@ php:
 services:
   - mysql
 before_install:
-  - mysql -u root --default-character-set=utf8 bdsuivisio < ./sql/bdsuivisio_createuser_lot1.sql  
-  - mysql -u root --default-character-set=utf8 bdsuivisio < ./sql/bdsuivisio_struct_lot1.sql
-  - mysql -u root --default-character-set=utf8 bdsuivisio < ./sql/bdsuivisio_data_lot1.sql
+  - mysql -u root --default-character-set=utf8 < ./sql/bdsuivisio_createuser_lot1.sql  
+  - mysql -u root --default-character-set=utf8 portefeuille < ./sql/bdsuivisio_struct_lot1.sql
+  - mysql -u root --default-character-set=utf8 portefeuille < ./sql/bdsuivisio_data_lot1.sql
 script:
   - phpunit --configuration phpunit.xml
