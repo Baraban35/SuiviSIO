@@ -8,4 +8,4 @@ CREATE DATABASE portefeuille;
 
 CREATE USER 'portefeuille'@'localhost' IDENTIFIED BY 'secret';
 GRANT USAGE ON *.* TO 'portefeuille'@'localhost' ;
-GRANT SELECT , INSERT , UPDATE , DELETE ON bdsuivisio.* TO 'portefeuille'@'localhost';
+GRANT SELECT , INSERT , UPDATE , DELETE ON portefeuille.* TO 'portefeuille'@'localhost';

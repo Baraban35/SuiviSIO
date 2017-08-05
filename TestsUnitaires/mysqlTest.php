@@ -51,8 +51,8 @@ class MySqlTest extends PHPUnit_Framework_TestCase {
      */
     
     protected function tearDown() {
-        $this->_unMysql->close();
-        unset($this->_unMysql);
+//        $this->_unMysql->close();
+//        unset($this->_unMysql);
     }
 
     /**
@@ -111,7 +111,7 @@ class MySqlTest extends PHPUnit_Framework_TestCase {
         $dernierAjoutCasUn = $this->_unMysql->insertId();
         // on vérifie le type du retour, et sa valeur
         $this->assertTrue(is_int($dernierAjoutCasUn));
-        self::assertequals(2, $dernierAjoutCasUn);
+        self::assertequals(11, $dernierAjoutCasUn);
 		
         //requête test
         $this->_unMysql->execSql("select * from `port_professeur`");

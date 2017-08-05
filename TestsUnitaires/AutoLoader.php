@@ -15,10 +15,10 @@ class AutoLoader {
             if ($file->isDir() && !$file->isLink() && !$file->isDot()) {
                 // recurse into directories other than a few special ones
                 self::registerDirectory($file->getPathname());
-            } elseif (substr($file->getFilename(), -4) === '.php') {
+            } elseif (substr($file->getFilename(), -10) === '.class.php') {
                 // save the class name / path of a .php file found
-                $className = substr($file->getFilename(), 0, -4);
-                AutoLoader::registerClass($className, $file->getPathname());
+                $className = substr($file->getFilename(), 0, -10);
+                AutoLoader::registerClass(ucfirst($className), $file->getPathname());
             }
         }
     }
