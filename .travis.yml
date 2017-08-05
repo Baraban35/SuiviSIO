@@ -1,0 +1,15 @@
+## YAML Template.
+language: php
+php:
+  - '5.4'
+  - '5.5'
+  - '5.6'
+  - '7.0'
+services:
+  - mysql
+before_install:
+  - mysql -u root --default-character-set=utf8 bdsuivisio < ./sql/bdsuivisio_createuser_lot1.sql  
+  - mysql -u root --default-character-set=utf8 bdsuivisio < ./sql/bdsuivisio_struct_lot1.sql
+  - mysql -u root --default-character-set=utf8 bdsuivisio < ./sql/bdsuivisio_data_lot1.sql
+script:
+  - phpunit --configuration phpunit.xml
