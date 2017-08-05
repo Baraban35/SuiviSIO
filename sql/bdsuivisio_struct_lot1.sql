@@ -263,7 +263,7 @@ CREATE TABLE port_situation
       DEFAULT NULL,
     environnement TEXT  NULL,
     moyen TEXT  NULL,
-    anisPerso TEXT  NULL,
+    avisPerso TEXT  NULL,
     valide CHAR(1) NOT NULL DEFAULT 'O',
     dateModif DATE 
       DEFAULT NULL,
