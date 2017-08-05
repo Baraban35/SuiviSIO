@@ -19,7 +19,7 @@
     public function __construct($estModeTest=false)
     {        
         if ($estModeTest) {
-            include '../dirrw/param/param.ini.php'; //TestUnit
+            include dirname(__DIR__).'/dirrw/param/param.ini.php'; //TestUnit
         }
         else {
             include './dirrw/param/param.ini.php'; //AppliWeb
@@ -35,10 +35,10 @@
     /** 
      * @function connect
      *    
-     * Permet d'établir la connexion ? la base de données
+     * Permet d'ï¿½tablir la connexion ? la base de donnï¿½es
      */
     public function connect()
-    {//pas de gestion erreur, ça doit marcher quand on lui dit de marcher !
+    {//pas de gestion erreur, ï¿½a doit marcher quand on lui dit de marcher !
 	$this->dataSourceName = "mysql:host=" . $this->serveur . ";dbname=" . $this->bd;
 	$this->con = new PDO($this->dataSourceName, $this->id, $this->mdp);
         //$this->con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -47,11 +47,11 @@
     /** 
      * @function execSQLRes
      *
-     * @param string       $req     Une chaîne contenant un ordre SQL   
+     * @param string       $req     Une chaï¿½ne contenant un ordre SQL   
      *
-     * @return array       $tbRes   Un tableau ? indice numérique contenant le résultat de l'ordre SQL ordonné par ligne
+     * @return array       $tbRes   Un tableau ? indice numï¿½rique contenant le rï¿½sultat de l'ordre SQL ordonnï¿½ par ligne
      *
-     * Permet d'envoyer un ordre SQL ? la base de données et de retourner un tableau qui contient les lignes résultats.
+     * Permet d'envoyer un ordre SQL ? la base de donnï¿½es et de retourner un tableau qui contient les lignes rï¿½sultats.
      */
     public function execSQLRes($req)
     {
@@ -75,9 +75,9 @@
     /**
      * @function insertId
      * 
-     * @return int       $dernierAjout    Un entier correspondant ? la valeur du dernier ID inséré dans un champ de type AUTO_INCREMENT
+     * @return int       $dernierAjout    Un entier correspondant ? la valeur du dernier ID insï¿½rï¿½ dans un champ de type AUTO_INCREMENT
      * 
-     * Permet de connaitre la valeur du dernier ID, attribué automatiquement, dans la base de données.
+     * Permet de connaitre la valeur du dernier ID, attribuï¿½ automatiquement, dans la base de donnï¿½es.
      */
     public function insertId()
     {
@@ -92,11 +92,11 @@
     /**
      * @function execSQL
      * 
-     * @param string        $req    Une chaîne contenant un ordre SQL  
+     * @param string        $req    Une chaï¿½ne contenant un ordre SQL  
      * 
-     * @return int          Un entier indiquant le nombre de lignes affectées par l'ordre SQL
+     * @return int          Un entier indiquant le nombre de lignes affectï¿½es par l'ordre SQL
      * 
-     * Permet d'envoyer un ordre SQL ? la base de données.
+     * Permet d'envoyer un ordre SQL ? la base de donnï¿½es.
      */
     public function execSQL($req)
 	{
@@ -109,9 +109,9 @@
      * 
      * @param boolean      $estModeTest    Un booleen faux par defaut (false)
      * 
-     * @return string       $nomFic Une chaîne portant le nom du fichier
+     * @return string       $nomFic Une chaï¿½ne portant le nom du fichier
      * 
-     * Permet de sauvegarder l'état de la base de données dans un fichier SQL compressé.
+     * Permet de sauvegarder l'ï¿½tat de la base de donnï¿½es dans un fichier SQL compressï¿½.
      */
     public function sauveTables($id, $estModeTest=false){
             if ($estModeTest) {
@@ -150,7 +150,7 @@
     /**
      * @function close
      * 
-     * Permet de détruire la connexion
+     * Permet de dï¿½truire la connexion
      */
     public function close()
     {
