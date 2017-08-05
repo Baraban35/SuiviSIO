@@ -1,304 +1,304 @@
 
 -- -----------------------------------------------------------------------------
---       TABLE : PORT_TYPE
+--       TABLE : port_type
 -- -----------------------------------------------------------------------------
 
-CREATE TABLE PORT_TYPE
+CREATE TABLE port_type
    (
-    CODE INT(6)  NOT NULL,
-    LIBELLE CHAR(12)  NOT NULL
-,   CONSTRAINT PK_PORT_TYPE PRIMARY KEY (CODE)  
+    code INT(6)  NOT NULL,
+    libelle CHAR(12)  NOT NULL
+,   CONSTRAINT PK_port_type PRIMARY KEY (CODE)  
    ) ;
 
 -- -----------------------------------------------------------------------------
 --       TABLE : PORT_TYPOLOGIE
 -- -----------------------------------------------------------------------------
 
-CREATE TABLE PORT_TYPOLOGIE
+CREATE TABLE port_typologie
    (
-    CODE INT(6)  NOT NULL,
-    LNGUTILE INT(6)  NOT NULL,
-    LIBELLE VARCHAR(85)  NOT NULL
-,   CONSTRAINT PK_PORT_TYPOLOGIE PRIMARY KEY (CODE)  
+    code INT(6)  NOT NULL,
+    lngUtile INT(6)  NOT NULL,
+    libelle VARCHAR(85)  NOT NULL
+,   CONSTRAINT PK_port_typologie PRIMARY KEY (CODE)  
    ) ;
 
 -- -----------------------------------------------------------------------------
 --       TABLE : PORT_CADRE
 -- -----------------------------------------------------------------------------
 
-CREATE TABLE PORT_CADRE
+CREATE TABLE port_cadre
    (
-    CODE INT(6)  NOT NULL,
-    LIBELLE CHAR(20)  NOT NULL
-,   CONSTRAINT PK_PORT_CADRE PRIMARY KEY (CODE)  
+    code INT(6)  NOT NULL,
+    libelle CHAR(20)  NOT NULL
+,   CONSTRAINT PK_port_cadre PRIMARY KEY (CODE)  
    ) ;
 
 -- -----------------------------------------------------------------------------
 --       TABLE : PORT_PARCOURS
 -- -----------------------------------------------------------------------------
 
-CREATE TABLE PORT_PARCOURS
+CREATE TABLE port_parcours
    (
-    ID INT(6)  NOT NULL,
-    NOMENCLATURE CHAR(4)  NOT NULL,
-    LIBELLE VARCHAR(50)  NOT NULL
-,   CONSTRAINT PK_PORT_PARCOURS PRIMARY KEY (ID)  
+    id INT(6)  NOT NULL,
+    nomenclature CHAR(4)  NOT NULL,
+    libelle VARCHAR(50)  NOT NULL
+,   CONSTRAINT PK_port_parcours PRIMARY KEY (ID)  
    ) ;
 
 -- -----------------------------------------------------------------------------
 --       TABLE : PORT_PROCESSUS
 -- -----------------------------------------------------------------------------
 
-CREATE TABLE PORT_PROCESSUS
+CREATE TABLE port_processus
    (
-    ID INT(6)  NOT NULL,
-    NOMENCLATURE CHAR(2)  NOT NULL,
-    LIBELLE VARCHAR(60)  NOT NULL
-,   CONSTRAINT PK_PORT_PROCESSUS PRIMARY KEY (ID)  
+    id INT(6)  NOT NULL,
+    nomenclature CHAR(2)  NOT NULL,
+    libelle VARCHAR(60)  NOT NULL
+,   CONSTRAINT PK_port_processus PRIMARY KEY (ID)  
    ) ;
 
 -- -----------------------------------------------------------------------------
---       TABLE : PORT_PROFESSEUR
+--       TABLE : port_professeur
 -- -----------------------------------------------------------------------------
 
-CREATE TABLE PORT_PROFESSEUR
+CREATE TABLE port_professeur
    (
-    NUM INT(11)  NOT NULL,
-    NOM CHAR(32)  NOT NULL,
-    PRENOM CHAR(32)  NOT NULL,
-    MEL CHAR(64)  NOT NULL,
-    MDP CHAR(32)  NOT NULL,
-    NIVEAU INT(11)  NOT NULL,
-    VALIDE CHAR(1) 
+    num INT(11)  NOT NULL,
+    nom CHAR(32)  NOT NULL,
+    prenom CHAR(32)  NOT NULL,
+    mel CHAR(64)  NOT NULL,
+    mdp CHAR(32)  NOT NULL,
+    niveau INT(11)  NOT NULL,
+    valide CHAR(1) 
       DEFAULT 'O' NULL
-,   CONSTRAINT PK_PORT_PROFESSEUR PRIMARY KEY (NUM)  
+,   CONSTRAINT PK_port_professeur PRIMARY KEY (NUM)  
    ) ;
 
 -- -----------------------------------------------------------------------------
---       TABLE : PORT_EPREUVE
+--       TABLE : port_epreuve
 -- -----------------------------------------------------------------------------
 
-CREATE TABLE PORT_EPREUVE
+CREATE TABLE port_epreuve
    (
-    ID INT(6)  NOT NULL,
-    NOMENCLATURE CHAR(4)  NOT NULL
-,   CONSTRAINT PK_PORT_EPREUVE PRIMARY KEY (ID)  
+    id INT(6)  NOT NULL,
+    nomenclature CHAR(4)  NOT NULL
+,   CONSTRAINT PK_port_epreuve PRIMARY KEY (ID)  
    ) ;
 
 -- -----------------------------------------------------------------------------
---       TABLE : PORT_GROUPE
+--       TABLE : port_groupe
 -- -----------------------------------------------------------------------------
 
-CREATE TABLE PORT_GROUPE
+CREATE TABLE port_groupe
    (
-    NUM INT(11)  NOT NULL,
-    NOM CHAR(12) 
+    num INT(11)  NOT NULL,
+    nom CHAR(12) 
       DEFAULT NULL,
-    ANNEE CHAR(2) 
+    annee CHAR(2) 
       DEFAULT NULL,
-    IDPARCOURS INT(6) 
+    idParcours INT(6) 
       DEFAULT 0
-,   CONSTRAINT PK_PORT_GROUPE PRIMARY KEY (NUM)  
+,   CONSTRAINT PK_port_groupe PRIMARY KEY (NUM)  
    ) ;
 
 -- -----------------------------------------------------------------------------
---       TABLE : PORT_LOCALISATION
+--       TABLE : port_localisation
 -- -----------------------------------------------------------------------------
 
-CREATE TABLE PORT_LOCALISATION
+CREATE TABLE port_localisation
    (
-    CODE INT(6)  NOT NULL,
-    LIBELLE CHAR(32)  NOT NULL
-,   CONSTRAINT PK_PORT_LOCALISATION PRIMARY KEY (CODE)  
+    code INT(6)  NOT NULL,
+    libelle CHAR(32)  NOT NULL
+,   CONSTRAINT PK_port_localisation PRIMARY KEY (CODE)  
    ) ;
 
 -- -----------------------------------------------------------------------------
---       TABLE : PORT_DOMAINE
+--       TABLE : port_domaine
 -- -----------------------------------------------------------------------------
 
-CREATE TABLE PORT_DOMAINE
+CREATE TABLE port_domaine
    (
-    ID INT(6)  NOT NULL,
-    IDPROCESSUS INT(6)  NOT NULL,
-    NOMENCLATURE CHAR(4)  NOT NULL,
-    LIBELLE VARCHAR(60)  NOT NULL
-,   CONSTRAINT PK_PORT_DOMAINE PRIMARY KEY (ID)  
+    id INT(6)  NOT NULL,
+    idProcessus INT(6)  NOT NULL,
+    nomenclature CHAR(4)  NOT NULL,
+    libelle VARCHAR(60)  NOT NULL
+,   CONSTRAINT PK_port_domaine PRIMARY KEY (ID)  
    ) ;
 
 -- -----------------------------------------------------------------------------
---       TABLE : PORT_SOURCE
+--       TABLE : port_source
 -- -----------------------------------------------------------------------------
 
-CREATE TABLE PORT_SOURCE
+CREATE TABLE port_source
    (
-    CODE INT(6)  NOT NULL,
-    LIBELLE CHAR(20)  NOT NULL,
-    CODETYPESOURCE INT(6) 
+    code INT(6)  NOT NULL,
+    libelle CHAR(20)  NOT NULL,
+    codeTypeSource INT(6) 
       DEFAULT NULL
-,   CONSTRAINT PK_PORT_SOURCE PRIMARY KEY (CODE)  
+,   CONSTRAINT PK_port_source PRIMARY KEY (CODE)  
    ) ;
 
 -- -----------------------------------------------------------------------------
---       TABLE : PORT_ACTIVITE
+--       TABLE : port_activite
 -- -----------------------------------------------------------------------------
 
-CREATE TABLE PORT_ACTIVITE
+CREATE TABLE port_activite
    (
-    ID INT(6)  NOT NULL,
-    IDDOMAINE INT(6)  NOT NULL,
-    NOMENCLATURE CHAR(7)  NOT NULL,
-    LNGUTILE INT(6)  NOT NULL,
-    LIBELLE VARCHAR(150)  NOT NULL
-,   CONSTRAINT PK_PORT_ACTIVITE PRIMARY KEY (ID)  
+    id INT(6)  NOT NULL,
+    idDomaine INT(6)  NOT NULL,
+    nomenclature CHAR(7)  NOT NULL,
+    lngUtile INT(6)  NOT NULL,
+    libelle VARCHAR(150)  NOT NULL
+,   CONSTRAINT PK_port_activite PRIMARY KEY (ID)  
    ) ;
 
 -- -----------------------------------------------------------------------------
---       TABLE : PORT_ACTIVITECITEE
+--       TABLE : port_activitecitee
 -- -----------------------------------------------------------------------------
 
-CREATE TABLE PORT_ACTIVITECITEE
+CREATE TABLE port_activitecitee
    (
-    IDACTIVITE INT(6)  NOT NULL,
-    REFSITUATION INT(11)  NOT NULL,
-    COMMENTAIRE TEXT  NULL
-,   CONSTRAINT PK_PORT_ACTIVITECITEE PRIMARY KEY (IDACTIVITE, REFSITUATION)  
+    idActivite INT(6)  NOT NULL,
+    refSituation INT(11)  NOT NULL,
+    commentaire TEXT  NULL
+,   CONSTRAINT PK_port_activitecitee PRIMARY KEY (IDACTIVITE, REFSITUATION)  
    ) ;
 
 -- -----------------------------------------------------------------------------
---       TABLE : PORT_ESTTYPO
+--       TABLE : port_esttypo
 -- -----------------------------------------------------------------------------
 
-CREATE TABLE PORT_ESTTYPO
+CREATE TABLE port_esttypo
    (
-    REFSITUATION INT(11)  NOT NULL DEFAULT 0,
-    CODETYPOLOGIE INT(6)  NOT NULL DEFAULT 0
-,   CONSTRAINT PK_PORT_ESTTYPO PRIMARY KEY (REFSITUATION, CODETYPOLOGIE)  
+    refSituation INT(11)  NOT NULL DEFAULT 0,
+    codeTypologie INT(6)  NOT NULL DEFAULT 0
+,   CONSTRAINT PK_port_esttypo PRIMARY KEY (REFSITUATION, CODETYPOLOGIE)  
    ) ;
 
 -- -----------------------------------------------------------------------------
---       TABLE : PORT_ETUDIANT
+--       TABLE : port_etudiant
 -- -----------------------------------------------------------------------------
 
-CREATE TABLE PORT_ETUDIANT
+CREATE TABLE port_etudiant
    (
-    NUM INT(11)  NOT NULL,
-    NUMGROUPE INT(11) 
+    num INT(11)  NOT NULL,
+    numGroupe INT(11) 
       DEFAULT NULL,
-    NOM CHAR(32)  NOT NULL,
-    PRENOM CHAR(32)  NOT NULL,
-    MEL CHAR(64)  NOT NULL,
-    MDP CHAR(32)  NOT NULL,
-    NUMEXAM CHAR(16) 
+    nom CHAR(32)  NOT NULL,
+    prenom CHAR(32)  NOT NULL,
+    mel CHAR(64)  NOT NULL,
+    mdp CHAR(32)  NOT NULL,
+    numExam CHAR(16) 
       DEFAULT NULL,
-    VALIDE CHAR(1) NOT NULL DEFAULT 'O'
-,   CONSTRAINT PK_PORT_ETUDIANT PRIMARY KEY (NUM)  
+    valide CHAR(1) NOT NULL DEFAULT 'O'
+,   CONSTRAINT PK_port_etudiant PRIMARY KEY (NUM)  
    ) ;
 
 -- -----------------------------------------------------------------------------
---       TABLE : PORT_EVALUE
+--       TABLE : port_evalue
 -- -----------------------------------------------------------------------------
 
-CREATE TABLE PORT_EVALUE
+CREATE TABLE port_evalue
    (
-    IDPARCOURS INT(6)  NOT NULL DEFAULT 0,
-    IDEPREUVE INT(6)  NOT NULL DEFAULT 0,
-    IDACTIVITE INT(6)  NOT NULL DEFAULT 0
-,   CONSTRAINT PK_PORT_EVALUE PRIMARY KEY (IDPARCOURS, IDEPREUVE, IDACTIVITE)  
+    idParcours INT(6)  NOT NULL DEFAULT 0,
+    idEpreuve INT(6)  NOT NULL DEFAULT 0,
+    idActivite INT(6)  NOT NULL DEFAULT 0
+,   CONSTRAINT PK_port_evalue PRIMARY KEY (IDPARCOURS, IDEPREUVE, IDACTIVITE)  
    ) ;
 
 -- -----------------------------------------------------------------------------
---       TABLE : PORT_EXERCE
+--       TABLE : port_exerce
 -- -----------------------------------------------------------------------------
 
-CREATE TABLE PORT_EXERCE
+CREATE TABLE port_exerce
    (
-    NUMPROFESSEUR INT(11)  NOT NULL,
-    NUMGROUPE INT(11)  NOT NULL
-,   CONSTRAINT PK_PORT_EXERCE PRIMARY KEY (NUMPROFESSEUR, NUMGROUPE)  
+    numProfesseur INT(11)  NOT NULL,
+    numGroupe INT(11)  NOT NULL
+,   CONSTRAINT PK_port_exerce PRIMARY KEY (NUMPROFESSEUR, NUMGROUPE)  
    ) ;
 
 -- -----------------------------------------------------------------------------
---       TABLE : PORT_EXPLOITE
+--       TABLE : port_exploite
 -- -----------------------------------------------------------------------------
 
-CREATE TABLE PORT_EXPLOITE
+CREATE TABLE port_exploite
    (
-    IDPARCOURS INT(6)  NOT NULL DEFAULT 0,
-    IDPROCESSUS INT(6) NOT NULL DEFAULT 0
-,   CONSTRAINT PK_PORT_EXPLOITE PRIMARY KEY (IDPARCOURS, IDPROCESSUS)  
+    idParcours INT(6)  NOT NULL DEFAULT 0,
+    idProcessus INT(6) NOT NULL DEFAULT 0
+,   CONSTRAINT PK_port_exploite PRIMARY KEY (IDPARCOURS, IDPROCESSUS)  
    ) ;
 
 -- -----------------------------------------------------------------------------
---       TABLE : PORT_PRODUCTION
+--       TABLE : port_production
 -- -----------------------------------------------------------------------------
 
-CREATE TABLE PORT_PRODUCTION
+CREATE TABLE port_production
    (
-    NUMERO INT(11)  NOT NULL,
-    REFSITUATION INT(11)  NOT NULL,
-    DESIGNATION VARCHAR(1024) 
+    numero INT(11)  NOT NULL,
+    refSituation INT(11)  NOT NULL,
+    designation VARCHAR(1024) 
       DEFAULT NULL,
-    ADRESSE VARCHAR(255) 
+    adresse VARCHAR(255) 
       DEFAULT NULL
-,   CONSTRAINT PK_PORT_PRODUCTION PRIMARY KEY (NUMERO)  
+,   CONSTRAINT PK_port_production PRIMARY KEY (NUMERO)  
    ) ;
 
 -- -----------------------------------------------------------------------------
---       TABLE : PORT_SITUATION
+--       TABLE : port_situation
 -- -----------------------------------------------------------------------------
 
-CREATE TABLE PORT_SITUATION
+CREATE TABLE port_situation
    (
-    REF INT(11)  NOT NULL,
-    NUMETUDIANT INT(11)  NOT NULL,
-    CODESOURCE INT(6)  NOT NULL,
-    CODETYPE INT(6)  NOT NULL,
-    CODECADRE INT(6)  NOT NULL,
-    LIBCOURT VARCHAR(128)  NOT NULL,
-    DESCRIPTIF TEXT	NOT NULL,
-    CONTEXTE TEXT  NULL,
-    DATEDEBUT DATE 
+    ref INT(11)  NOT NULL,
+    numEtudiant INT(11)  NOT NULL,
+    codeSource INT(6)  NOT NULL,
+    codeType INT(6)  NOT NULL,
+    codeCadre INT(6)  NOT NULL,
+    libCourt VARCHAR(128)  NOT NULL,
+    descriptif TEXT	NOT NULL,
+    contexte TEXT  NULL,
+    dateDebut DATE 
       DEFAULT NULL,
-    DATEFIN DATE 
+    dateFin DATE 
       DEFAULT NULL,
-    ENVIRONNEMENT TEXT  NULL,
-    MOYEN TEXT  NULL,
-    AVISPERSO TEXT  NULL,
-    VALIDE CHAR(1) NOT NULL DEFAULT 'O',
-    DATEMODIF DATE 
+    environnement TEXT  NULL,
+    moyen TEXT  NULL,
+    anisPerso TEXT  NULL,
+    valide CHAR(1) NOT NULL DEFAULT 'O',
+    dateModif DATE 
       DEFAULT NULL,
-    CODELOCALISATION INT(6)  NOT NULL
-,   CONSTRAINT PK_PORT_SITUATION PRIMARY KEY (REF)  
+    codeLocalisation INT(6)  NOT NULL
+,   CONSTRAINT PK_port_situation PRIMARY KEY (REF)  
    ) ;
 
 -- -----------------------------------------------------------------------------
---       TABLE : PORT_COMMENTAIRE
+--       TABLE : port_commentaire
 -- -----------------------------------------------------------------------------
 
-CREATE TABLE PORT_COMMENTAIRE
+CREATE TABLE port_commentaire
    (
-    NUMERO INT(11)  NOT NULL,
-    REFSITUATION INT(11) 
+    numero INT(11)  NOT NULL,
+    refSituation INT(11) 
       DEFAULT NULL,
-    NUMPROFESSEUR INT(11) 
+    numProfesseur INT(11) 
       DEFAULT NULL,
-    COMMENTAIRE TEXT  NULL,
-    DATECOMMENTAIRE DATE 
+    commentaire TEXT  NULL,
+    dateCommentaire DATE 
       DEFAULT NULL
-,   CONSTRAINT PK_PORT_COMMENTAIRE PRIMARY KEY (NUMERO)  
+,   CONSTRAINT PK_port_commentaire PRIMARY KEY (NUMERO)  
    ) ;
 
 -- -----------------------------------------------------------------------------
---       TABLE : PORT_COMPETENCE
+--       TABLE : port_competence
 -- -----------------------------------------------------------------------------
 
-CREATE TABLE PORT_COMPETENCE
+CREATE TABLE port_competence
    (
-    ID INT(6)  NOT NULL,
-    IDACTIVITE INT(6)  NOT NULL,
-    NOMENCLATURE CHAR(9)  NOT NULL,
-    LIBELLE VARCHAR(210)  NOT NULL
-,   CONSTRAINT PK_PORT_COMPETENCE PRIMARY KEY (ID)  
+    id INT(6)  NOT NULL,
+    idActivite INT(6)  NOT NULL,
+    nomenclature CHAR(9)  NOT NULL,
+    libelle VARCHAR(210)  NOT NULL
+,   CONSTRAINT PK_port_competence PRIMARY KEY (ID)  
    ) ;
 
 
@@ -316,127 +316,127 @@ ALTER TABLE port_production
   MODIFY numero int(11) NOT NULL AUTO_INCREMENT;
 ALTER TABLE port_professeur
   MODIFY num int(11) NOT NULL AUTO_INCREMENT;
-ALTER TABLE PORT_SITUATION
+ALTER TABLE port_situation
   MODIFY ref int(11) NOT NULL AUTO_INCREMENT;
 
 -- -----------------------------------------------------------------------------
 --       CREATION DES REFERENCES DE TABLE
 -- -----------------------------------------------------------------------------
 
-ALTER TABLE PORT_DOMAINE ADD (
+ALTER TABLE port_domaine ADD (
      CONSTRAINT FK_DOMAINE_PROCESSUS
-          FOREIGN KEY (IDPROCESSUS)
-               REFERENCES PORT_PROCESSUS (ID))   ;
+          FOREIGN KEY (idProcessus)
+               REFERENCES port_processus (id))   ;
 
-ALTER TABLE PORT_SOURCE ADD (
+ALTER TABLE port_source ADD (
      CONSTRAINT FK_SOURCE_TYPE
-          FOREIGN KEY (CODETYPESOURCE)
-               REFERENCES PORT_TYPE (CODE))   ;
+          FOREIGN KEY (codeTypeSource)
+               REFERENCES port_type (code))   ;
 
-ALTER TABLE PORT_ACTIVITE ADD (
+ALTER TABLE port_activite ADD (
      CONSTRAINT FK_ACTIVITE_DOMAINE
-          FOREIGN KEY (IDDOMAINE)
-               REFERENCES PORT_DOMAINE (ID))   ;
+          FOREIGN KEY (idDomaine)
+               REFERENCES port_domaine (id))   ;
 
-ALTER TABLE PORT_ACTIVITECITEE ADD (
+ALTER TABLE port_activitecitee ADD (
      CONSTRAINT FK_ACTIVITECITEE_SITUATION
-          FOREIGN KEY (REFSITUATION)
-               REFERENCES PORT_SITUATION (REF))   ;
+          FOREIGN KEY (refSituation)
+               REFERENCES port_situation (ref))   ;
 
-ALTER TABLE PORT_ACTIVITECITEE ADD (
-     CONSTRAINT PORT_ACTIVITECITEE_ACTIVITE
-          FOREIGN KEY (IDACTIVITE)
-               REFERENCES PORT_ACTIVITE (ID))   ;
+ALTER TABLE port_activitecitee ADD (
+     CONSTRAINT port_activitecitee_ACTIVITE
+          FOREIGN KEY (idActivite)
+               REFERENCES port_activite (id))   ;
 
-ALTER TABLE PORT_ESTTYPO ADD (
+ALTER TABLE port_esttypo ADD (
      CONSTRAINT FK_ESTTYPO_SITUATION
-          FOREIGN KEY (REFSITUATION)
-               REFERENCES PORT_SITUATION (REF))   ;
+          FOREIGN KEY (refSituation)
+               REFERENCES port_situation (ref))   ;
 
-ALTER TABLE PORT_ESTTYPO ADD (
+ALTER TABLE port_esttypo ADD (
      CONSTRAINT FK_ESTTYPO_TYPOLOGIE
-          FOREIGN KEY (CODETYPOLOGIE)
-               REFERENCES PORT_TYPOLOGIE (CODE))   ;
+          FOREIGN KEY (codeTypologie)
+               REFERENCES port_typologie (code))   ;
 
-ALTER TABLE PORT_ETUDIANT ADD (
+ALTER TABLE port_etudiant ADD (
      CONSTRAINT FK_ETUDIANT_GROUPE
-          FOREIGN KEY (NUMGROUPE)
-               REFERENCES PORT_GROUPE (NUM))   ;
+          FOREIGN KEY (numGroupe)
+               REFERENCES port_groupe (num))   ;
 
-ALTER TABLE PORT_EVALUE ADD (
+ALTER TABLE port_evalue ADD (
      CONSTRAINT FK_EVALUE_PARCOURS
-          FOREIGN KEY (IDPARCOURS)
-               REFERENCES PORT_PARCOURS (ID))   ;
+          FOREIGN KEY (idParcours)
+               REFERENCES port_parcours (id))   ;
 
-ALTER TABLE PORT_EVALUE ADD (
+ALTER TABLE port_evalue ADD (
      CONSTRAINT FK_EVALUE_EPREUVE
-          FOREIGN KEY (IDEPREUVE)
-               REFERENCES PORT_EPREUVE (ID))   ;
+          FOREIGN KEY (idEpreuve)
+               REFERENCES port_epreuve (id))   ;
 
-ALTER TABLE PORT_EVALUE ADD (
+ALTER TABLE port_evalue ADD (
      CONSTRAINT FK_EVALUE_ACTIVITE
-          FOREIGN KEY (IDACTIVITE)
-               REFERENCES PORT_ACTIVITE (ID))   ;
+          FOREIGN KEY (idActivite)
+               REFERENCES port_activite (id))   ;
 
-ALTER TABLE PORT_EXERCE ADD (
+ALTER TABLE port_exerce ADD (
      CONSTRAINT FK_EXERCE_PROFESSEUR
-          FOREIGN KEY (NUMPROFESSEUR)
-               REFERENCES PORT_PROFESSEUR (NUM))   ;
+          FOREIGN KEY (numProfesseur)
+               REFERENCES port_professeur (num))   ;
 
-ALTER TABLE PORT_EXERCE ADD (
+ALTER TABLE port_exerce ADD (
      CONSTRAINT FK_EXERCE_GROUPE
-          FOREIGN KEY (NUMGROUPE)
-               REFERENCES PORT_GROUPE (NUM))   ;
+          FOREIGN KEY (numGroupe)
+               REFERENCES port_groupe (num))   ;
 
-ALTER TABLE PORT_EXPLOITE ADD (
+ALTER TABLE port_exploite ADD (
      CONSTRAINT FK_EXPLOITE_PARCOURS
-          FOREIGN KEY (IDPARCOURS)
-               REFERENCES PORT_PARCOURS (ID))   ;
+          FOREIGN KEY (idParcours)
+               REFERENCES port_parcours (id))   ;
 
-ALTER TABLE PORT_EXPLOITE ADD (
+ALTER TABLE port_exploite ADD (
      CONSTRAINT FK_EXPLOITE_PROCESSUS
-          FOREIGN KEY (IDPROCESSUS)
-               REFERENCES PORT_PROCESSUS (ID))   ;
+          FOREIGN KEY (idProcessus)
+               REFERENCES port_processus (id))   ;
 
-ALTER TABLE PORT_PRODUCTION ADD (
+ALTER TABLE port_production ADD (
      CONSTRAINT FK_PRODUCTION_SITUATION
-          FOREIGN KEY (REFSITUATION)
-               REFERENCES PORT_SITUATION (REF))   ;
+          FOREIGN KEY (refSituation)
+               REFERENCES port_situation (ref))   ;
 
-ALTER TABLE PORT_SITUATION ADD (
+ALTER TABLE port_situation ADD (
      CONSTRAINT FK_SITUATION_ETUDIANT
-          FOREIGN KEY (NUMETUDIANT)
-               REFERENCES PORT_ETUDIANT (NUM))   ;
+          FOREIGN KEY (numEtudiant)
+               REFERENCES port_etudiant (num))   ;
 
-ALTER TABLE PORT_SITUATION ADD (
+ALTER TABLE port_situation ADD (
      CONSTRAINT FK_SITUATION_TYPE
-          FOREIGN KEY (CODETYPE)
-               REFERENCES PORT_TYPE (CODE))   ;
+          FOREIGN KEY (codeType)
+               REFERENCES port_type (code))   ;
 
-ALTER TABLE PORT_SITUATION ADD (
+ALTER TABLE port_situation ADD (
      CONSTRAINT FK_SITUATION_SOURCE
-          FOREIGN KEY (CODESOURCE)
-               REFERENCES PORT_SOURCE (CODE))   ;
+          FOREIGN KEY (codeSource)
+               REFERENCES port_source (code))   ;
 
-ALTER TABLE PORT_SITUATION ADD (
+ALTER TABLE port_situation ADD (
      CONSTRAINT FK_SITUATION_CADRE
-          FOREIGN KEY (CODECADRE)
-               REFERENCES PORT_CADRE (CODE))   ;
+          FOREIGN KEY (codeCadre)
+               REFERENCES port_cadre (code))   ;
 
-ALTER TABLE PORT_SITUATION ADD (
-     CONSTRAINT FK_PORT_SITUATION_PORT_LOCALIS
-          FOREIGN KEY (CODELOCALISATION)
-               REFERENCES PORT_LOCALISATION (CODE))   ;
+ALTER TABLE port_situation ADD (
+     CONSTRAINT FK_port_situation_PORT_LOCALIS
+          FOREIGN KEY (codeLocalisation)
+               REFERENCES port_localisation (code))   ;
 
-ALTER TABLE PORT_COMMENTAIRE ADD (
+ALTER TABLE port_commentaire ADD (
      CONSTRAINT FK_COMMENTAIRE_SITUATION
-          FOREIGN KEY (REFSITUATION)
-               REFERENCES PORT_SITUATION (REF))   ;
+          FOREIGN KEY (refSituation)
+               REFERENCES port_situation (ref))   ;
 
-ALTER TABLE PORT_COMPETENCE ADD (
+ALTER TABLE port_competence ADD (
      CONSTRAINT FK_COMPETENCE_ACTIVITE
-          FOREIGN KEY (IDACTIVITE)
-               REFERENCES PORT_ACTIVITE (ID))   ;
+          FOREIGN KEY (idActivite)
+               REFERENCES port_activite (id))   ;
 
 
 -- -----------------------------------------------------------------------------
