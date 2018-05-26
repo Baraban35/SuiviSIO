@@ -71,7 +71,7 @@ class MySqlTest extends PHPUnit_Framework_TestCase {
      *      on vérifie les lignes résultats d'une sélection avec erreur de syntaxe
      */
     public function testExecSqlRes() {
-        $lesResultatsCasUn = $this->_unMysql->execSqlRes("select * from PORT_PROCESSUS");
+        $lesResultatsCasUn = $this->_unMysql->execSqlRes("select * from port_processus");
         // on vérifie le type du retour, le nombre d'éléments du tableau, et P1 dans 1ère ligne
         $this->assertTrue(is_array($lesResultatsCasUn));
         self::assertCount(5, $lesResultatsCasUn, "Vérification du nombre de lignes, cas de plusieurs lignes");
